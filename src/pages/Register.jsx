@@ -1,9 +1,95 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { useNavigate } from "react-router-dom";
+import { clearRegisterSuccess, registerUser } from "../App/Features/authSlice";
 
 const Register = () => {
-  return (
-    <div>Register</div>
-  )
-}
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isLoading, error, registerSuccess } = useSelector(
+    (state) => state.auth
+  );
 
-export default Register
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await dispatch(
+      registerUser({
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        password: formData.password,
+      })
+    );
+  };
+
+  useEffect(() => {
+    if (registerSuccess) {
+      alert("Registration completed successfully! Please log in.");
+      dispatch(clearRegisterSuccess());
+      navigate("/login"); 
+    }
+  }, [registerSuccess, dispatch, navigate]);
+
+  return (
+    <div className="flex justify-center items-center h-screen bg-gray-100">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-8 rounded-2xl shadow-lg w-96"
+      >
+        <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
+
+        <input
+          type="text"
+          name="name"
+          placeholder="Enter your name"
+          value={formData.name}
+          onChange={handleChange}
+          className="w-full px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          required
+        />
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          value={formData.email}
+          onChange={handleChange}
+          className="w-full px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          required
+        />
+
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter your password"
+          value={formData.password}
+          onChange={handleChange}
+          className="w-full px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          required
+        />
+
+        {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
+
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition disabled:bg-gray-400"
+          disabled={isLoading}
+        >
+          {isLoading ? "Registering..." : "Register"}
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default Register;
