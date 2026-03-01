@@ -10,6 +10,9 @@ import Nav from "./components/NavBar";
 import PrivateRoute from "./components/PrivateRoute";
 import Cart from "./pages/Cart";
 import ProductDetails from "./pages/ProductDetails";
+import Profile from "./pages/Profile";
+import Checkout from "./pages/Checkout";
+import Payment from "./pages/Payment";
 
 function App() {
   return (
@@ -72,6 +75,30 @@ function App() {
           element={
             <PrivateRoute>
               <About />
+            </PrivateRoute>
+          }
+        />
+          <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+             <Profile></Profile>
+            </PrivateRoute>
+          }
+        />
+          <Route
+          path="/checkout"
+          element={
+            <PrivateRoute>
+             <Checkout></Checkout>
+            </PrivateRoute>
+          }
+        />
+          <Route
+          path="/payment"
+          element={
+            <PrivateRoute>
+             <Payment></Payment>
             </PrivateRoute>
           }
         />
