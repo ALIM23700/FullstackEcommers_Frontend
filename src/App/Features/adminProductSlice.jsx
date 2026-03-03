@@ -6,7 +6,7 @@ export const fetchAllProducts = createAsyncThunk(
   "adminProducts/fetchAll",
   async (_, thunkAPI) => {
     try {
-      const { data } = await axios.get('http://localhost:3000/api/v1/products');
+      const { data } = await axios.get('https://fullstackecommers-backend-uerv.onrender.com/api/v1/products');
       return data.products;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response?.data?.message || error.message);
@@ -19,7 +19,7 @@ export const createProduct = createAsyncThunk(
   async (productData, thunkAPI) => {
     try {
       const token = localStorage.getItem("token");
-      const { data } = await axios.post('http://localhost:3000/api/v1/create', productData, {
+      const { data } = await axios.post('https://fullstackecommers-backend-uerv.onrender.com/api/v1/create', productData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       return data.product;
@@ -34,7 +34,7 @@ export const updateProduct = createAsyncThunk(
   async ({ id, productData }, thunkAPI) => {
     try {
       const token = localStorage.getItem("token");
-      const { data } = await axios.put('http://localhost:3000/api/v1/update/${id}', productData, {
+      const { data } = await axios.put('https://fullstackecommers-backend-uerv.onrender.com/api/v1/update/${id}', productData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       return data.product;
@@ -49,7 +49,7 @@ export const deleteProduct = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete('http://localhost:3000/api/v1/delete/${id}', {
+      await axios.delete('https://fullstackecommers-backend-uerv.onrender.com/api/v1/delete/${id}', {
         headers: { Authorization: `Bearer ${token}` },
       });
       return id;

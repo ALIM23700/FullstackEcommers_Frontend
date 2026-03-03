@@ -8,7 +8,7 @@ export const fetchAllOrders = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const token = localStorage.getItem("token");
-      const { data } = await axios.get("http://localhost:3000/api/v1/all-orders", {
+      const { data } = await axios.get("https://fullstackecommers-backend-uerv.onrender.com/api/v1/all-orders", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -30,7 +30,7 @@ export const markOrderDelivered = createAsyncThunk(
     try {
       const token = localStorage.getItem("token");
       const { data } = await axios.put(
-        "http://localhost:3000/order/:id/delivered",
+        "https://fullstackecommers-backend-uerv.onrender.com/:id/delivered",
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -50,7 +50,7 @@ export const deleteOrder = createAsyncThunk(
   async (orderId, thunkAPI) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete("http://localhost:3000/order/:id", {
+      await axios.delete("https://fullstackecommers-backend-uerv.onrender.com/order/:id", {
         headers: { Authorization: `Bearer ${token}` },
       });
       return orderId;

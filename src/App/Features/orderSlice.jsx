@@ -11,7 +11,7 @@ export const fetchUserOrders = createAsyncThunk(
       if (!token) return rejectWithValue("No token");
 
       const config = { headers: { Authorization: `Bearer ${token}` } };
-      const { data } = await axios.get('http://localhost:3000/api/v1/my-orders', config);
+      const { data } = await axios.get('https://fullstackecommers-backend-uerv.onrender.com/api/v1/my-orders', config);
       return data.orders;
     } catch (error) {
       return rejectWithValue(error.response?.data?.message || "Server error");

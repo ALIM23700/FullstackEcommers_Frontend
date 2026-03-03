@@ -7,7 +7,7 @@ export const registerUser = createAsyncThunk(
   "auth/registerUser",
   async (userData, { rejectWithValue }) => {
     try {
-      const res = await axios.post("http://localhost:3000/api/v1/register", userData);
+      const res = await axios.post("https://fullstackecommers-backend-uerv.onrender.com/api/v1/register", userData);
       return res.data;
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || err.message);
@@ -20,7 +20,7 @@ export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async (userData, { rejectWithValue }) => {
     try {
-      const res = await axios.post("http://localhost:3000/api/v1/login", userData);
+      const res = await axios.post("https://fullstackecommers-backend-uerv.onrender.com/api/v1/login", userData);
       return res.data;
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || err.message);

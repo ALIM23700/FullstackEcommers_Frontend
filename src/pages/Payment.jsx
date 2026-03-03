@@ -34,7 +34,7 @@ const Payment = () => {
 
     try {
       const config = { headers: { Authorization: `Bearer ${token}` } };
-      const { data } = await axios.post("http://localhost:3000/api/v1/createOrder", orderData, config);
+      const { data } = await axios.post("https://fullstackecommers-backend-uerv.onrender.com/api/v1/createOrder", orderData, config);
 
       if (data.success) {
         alert("Order placed successfully!");

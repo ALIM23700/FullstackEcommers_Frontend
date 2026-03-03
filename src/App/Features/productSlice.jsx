@@ -17,7 +17,7 @@ export const fetchProducts = createAsyncThunk(
       const queryString = query.length ? `?${query.join("&")}` : "";
 
       const res = await axios.get(
-        `http://localhost:3000/api/v1/products${queryString}`
+        `https://fullstackecommers-backend-uerv.onrender.com/api/v1/products${queryString}`
       );
 
       return res.data.products;
