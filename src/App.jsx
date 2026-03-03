@@ -13,6 +13,7 @@ import ProductDetails from "./pages/ProductDetails";
 import Profile from "./pages/Profile";
 import Checkout from "./pages/Checkout";
 import Payment from "./pages/Payment";
+import AdminDashboard from "./pages/AdminDashboard";
 
 function App() {
   return (
@@ -20,17 +21,17 @@ function App() {
       <Nav />
 
       <Routes>
-        {/* Public Routes */}
+      
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
 
-        {/* Protected Routes */}
+       
         <Route
           path="/"
           element={
-            <PrivateRoute>
+           
               <Home />
-            </PrivateRoute>
+          
           }
         />
 
@@ -102,6 +103,18 @@ function App() {
             </PrivateRoute>
           }
         />
+         <Route
+     path="/admin/dashboard"
+     element={
+       <PrivateRoute adminOnly={true}>
+         <AdminDashboard></AdminDashboard>
+
+       </PrivateRoute>
+     
+        
+      
+  }
+/>
       </Routes>
 
       <Footer />
