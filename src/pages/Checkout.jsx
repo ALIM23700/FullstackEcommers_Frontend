@@ -1,31 +1,67 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
   const { cartItems } = useSelector((state) => state.cart);
+  const { user } = useSelector((state) => state.auth);
   const [shippingAddress, setShippingAddress] = useState("");
-  const navigate = useNavigate();
 
-  const totalPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const totalPrice = cartItems.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (!shippingAddress) {
       alert("Please enter a shipping address.");
       return;
     }
-    navigate("/payment", { state: { shippingAddress } });
+
+    try {
+      // Map cartItems to include 'product' field for backend validation
+      const formattedCartItems = cartItems.map((item) => ({
+        name: item.name,
+        price: item.price,
+        quantity: item.quantity,
+        product: item._id, // required by backend
+      }));
+
+      const res = await fetch("https://fullstackecommers-backend-uerv.onrender.com/api/v1/payment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          amount: totalPrice,
+          name: user?.name || "Test User",
+          email: user?.email || "test@gmail.com",
+          phone: user?.phone || "01700000000",
+          userId: user?._id,
+          cartItems: formattedCartItems,
+          shippingAddress,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!data.url) {
+        alert("Payment URL not found!");
+        return;
+      }
+
+      // Redirect user to SSLCommerz payment page
+      window.location.replace(data.url);
+
+    } catch (error) {
+      console.error("Payment Error:", error);
+      alert("Payment failed! Try again.");
+    }
   };
 
   return (
     <div className="min-h-screen bg-gray-100 py-10 px-4">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
-      
+        {/* Shipping */}
         <div className="bg-white p-8 rounded-2xl shadow-lg">
           <h2 className="text-3xl font-bold mb-6">Shipping Details</h2>
-          <label className="block text-gray-700 font-semibold mb-2">
-            Shipping Address
-          </label>
           <input
             type="text"
             value={shippingAddress}
@@ -41,7 +77,7 @@ const Checkout = () => {
           </button>
         </div>
 
-       
+        {/* Order Summary */}
         <div className="bg-white p-8 rounded-2xl shadow-lg">
           <h2 className="text-3xl font-bold mb-6">Order Summary</h2>
           <div className="space-y-4">
@@ -61,7 +97,9 @@ const Checkout = () => {
                     <p className="text-gray-500 text-sm">Qty: {item.quantity}</p>
                   </div>
                 </div>
-                <p className="font-semibold">${(item.price * item.quantity).toFixed(2)}</p>
+                <p className="font-semibold">
+                  ${(item.price * item.quantity).toFixed(2)}
+                </p>
               </div>
             ))}
           </div>

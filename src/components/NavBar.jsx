@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
@@ -20,19 +20,36 @@ const Nav = () => {
   const totalCartItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <nav className="bg-gray-700 text-white flex flex-col sm:flex-row justify-between items-center p-4">
-      <div className="flex justify-between w-full sm:w-auto items-center">
+    <nav className="bg-gray-700 text-white flex flex-col sm:flex-row justify-between items-center p-4 relative">
+      {/* LEFT: Logo */}
+      <div className="flex items-center justify-between w-full sm:w-auto">
         <h1 className="text-4xl font-bold">
           Alim<span className="text-orange-500"> e</span>-Store
         </h1>
-        <FontAwesomeIcon
-          icon={menuOpen ? faXmark : faBars}
-          size="2x"
-          className="sm:hidden cursor-pointer"
-          onClick={() => setMenuOpen(!menuOpen)}
-        />
+
+        {/* Mobile Right side: Cart + Hamburger */}
+        <div className="flex items-center sm:hidden gap-4">
+          {/* Cart */}
+          <NavLink to="/cart" className="relative font-semibold">
+            Cart
+            {totalCartItems > 0 && (
+              <span className="absolute -top-2 -right-3 bg-red-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
+                {totalCartItems}
+              </span>
+            )}
+          </NavLink>
+
+          {/* Hamburger */}
+          <FontAwesomeIcon
+            icon={menuOpen ? faXmark : faBars}
+            size="2x"
+            className="cursor-pointer"
+            onClick={() => setMenuOpen(!menuOpen)}
+          />
+        </div>
       </div>
 
+      {/* LINKS + Desktop Cart */}
       <div
         className={`flex-col sm:flex-row sm:flex items-center w-full sm:w-auto mt-4 sm:mt-0 ${
           menuOpen ? "flex" : "hidden sm:flex"
@@ -86,15 +103,19 @@ const Nav = () => {
           </>
         )}
 
-        <NavLink to="/cart" className="sm:ml-8 mb-2 sm:mb-0 relative">
-          Cart
-          {totalCartItems > 0 && (
-            <span className="absolute -top-2 -right-3 bg-red-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
-              {totalCartItems}
-            </span>
-          )}
-        </NavLink>
+        {/* Desktop Cart: right after links, before logout */}
+        <div className="hidden sm:block sm:ml-8">
+          <NavLink to="/cart" className="relative font-semibold">
+            Cart
+            {totalCartItems > 0 && (
+              <span className="absolute -top-2 -right-3 bg-red-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
+                {totalCartItems}
+              </span>
+            )}
+          </NavLink>
+        </div>
 
+        {/* Logout button last */}
         {user && (
           <button
             onClick={handleLogout}

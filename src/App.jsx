@@ -14,6 +14,8 @@ import Profile from "./pages/Profile";
 import Checkout from "./pages/Checkout";
 import Payment from "./pages/Payment";
 import AdminDashboard from "./pages/AdminDashboard";
+import PaymentSuccess from "./pages/PaymentSuccess";
+import PaymentFail from "./pages/PaymentFail";
 
 function App() {
   return (
@@ -115,6 +117,9 @@ function App() {
       
   }
 />
+ <Route path="/payment/success/:tran_id" element={<PaymentSuccess />} />
+        <Route path="/payment/fail/:tran_id" element={<PaymentFail></PaymentFail>} />
+   
       </Routes>
 
       <Footer />

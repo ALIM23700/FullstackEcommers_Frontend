@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 const Product = () => {   
   const { isLoading, products, error } = useSelector((state) => state.products);   
- console.log(products)
   const dispatch = useDispatch();    
   const navigate = useNavigate();
 
@@ -36,8 +35,73 @@ const Product = () => {
 
   return (     
     <div className="w-full px-4 py-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-        <div className="bg-white shadow-lg p-4 rounded-2xl flex flex-col items-center">
+
+      {/* ======================== */}
+      {/* MOBILE FILTER (COMPACT) */}
+      {/* ======================== */}
+      <div className="block md:hidden mb-6">
+        <div className="bg-white shadow-lg p-3 rounded-2xl flex flex-col gap-3 w-full">
+          {/* Category */}
+          <div>
+            <h3 className="font-semibold mb-1">Category</h3>
+            <div className="flex overflow-x-auto gap-2 py-1">
+              {["", "watch", "sunglass", "bag", "cap"].map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setCategory(cat)}
+                  className={`flex-shrink-0 px-3 py-1 rounded-full text-sm transition-colors ${
+                    category === cat ? "bg-blue-600 text-white" : "bg-gray-200"
+                  }`}
+                >
+                  {cat === "" ? "All" : cat.charAt(0).toUpperCase() + cat.slice(1)}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Min & Max Price side by side */}
+          <div className="flex gap-2">
+            <div className="flex-1">
+              <h3 className="font-semibold mb-1 text-sm">Min Price</h3>
+              <input 
+                type="number" 
+                placeholder="100" 
+                className="p-1 border rounded w-full text-sm"
+                value={minPrice}
+                onChange={(e) => setMinPrice(e.target.value)}
+              />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-semibold mb-1 text-sm">Max Price</h3>
+              <input 
+                type="number" 
+                placeholder="1000" 
+                className="p-1 border rounded w-full text-sm"
+                value={maxPrice}
+                onChange={(e) => setMaxPrice(e.target.value)}
+              />
+            </div>
+          </div>
+
+          {/* Search */}
+          <div>
+            <input 
+              type="text" 
+              placeholder="Search..." 
+              className="p-1 border rounded w-full text-sm"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* ======================== */}
+      {/* DESKTOP/TABLET FILTER (4 SEPARATE CARDS) */}
+      {/* ======================== */}
+      <div className="hidden md:grid grid-cols-4 gap-4 mb-6">
+
+        <div className="bg-white shadow-lg p-4 rounded-2xl flex flex-col items-center w-full">
           <h3 className="font-semibold mb-2">Category</h3>
           {["", "watch", "sunglass", "bag", "cap"].map((cat) => (
             <button
@@ -52,7 +116,7 @@ const Product = () => {
           ))}
         </div>
 
-        <div className="bg-white shadow-lg p-4 rounded-2xl flex flex-col items-center">
+        <div className="bg-white shadow-lg p-4 rounded-2xl flex flex-col items-center w-full">
           <h3 className="font-semibold mb-2">Min Price</h3>
           <input 
             type="number" 
@@ -63,7 +127,7 @@ const Product = () => {
           />
         </div>
 
-        <div className="bg-white shadow-lg p-4 rounded-2xl flex flex-col items-center">
+        <div className="bg-white shadow-lg p-4 rounded-2xl flex flex-col items-center w-full">
           <h3 className="font-semibold mb-2">Max Price</h3>
           <input 
             type="number" 
@@ -74,7 +138,7 @@ const Product = () => {
           />
         </div>
 
-        <div className="bg-white shadow-lg p-4 rounded-2xl flex flex-col items-center">
+        <div className="bg-white shadow-lg p-4 rounded-2xl flex flex-col items-center w-full">
           <h3 className="font-semibold mb-2">Search</h3>
           <input 
             type="text" 
@@ -84,8 +148,12 @@ const Product = () => {
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
+
       </div>
 
+      {/* ======================== */}
+      {/* PRODUCT GRID (UNCHANGED) */}
+      {/* ======================== */}
       {isLoading && <h3 className="text-lg font-semibold text-center">Loading...</h3>}       
       {error && <h3 className="text-red-500 font-semibold text-center">{error}</h3>}       
 
