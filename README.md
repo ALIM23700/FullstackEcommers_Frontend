@@ -44,7 +44,7 @@ Supports user authentication, product browsing, cart management, checkout, and a
 
 ## ⚡ Backend API Base URL
 
-Base URL: https://fullstackecommers-backend-uerv.onrender.com
+Base URL: https://fullstackecommers-backend-uerv.onrender.com/api/v1/
 
 ✨ Features
 Fully responsive design for desktop & mobile
