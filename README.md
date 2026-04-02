@@ -6,6 +6,28 @@ Supports user authentication, product browsing, cart management, checkout, and a
 ## 🌐 Live Demo
 [Click here to view the live app](https://fullstack-ecommers-frontend.vercel.app/)
 
+### ⚙️ Backend
+[Backend Repo](https://github.com/ALIM23700/FullstackEcommers_Backend)
+
+
+## 🛠 Tech Stack
+
+- React.js
+- Tailwind CSS & DaisyUI
+- React Router DOM
+- Axios for API calls
+- LocalStorage for temporary state (cart & auth)
+
+✨ Features
+Fully responsive design for desktop & mobile
+User authentication (signup/login/logout)
+Product browsing, filtering, and details
+Shopping cart system with add/remove items
+Checkout flow with payment gateway
+Admin panel for product & order management
+Profile, About, Contact pages
+---
+
 ## 📸 Screenshots
 
 ### Home Page
@@ -32,28 +54,33 @@ Supports user authentication, product browsing, cart management, checkout, and a
 
 ### Admin Panel
 ![Admin Orders](screenshots/AdminPageOrder.png)
+![Admin Create Product](screenshots/AdminpageCreateProduct.png)## 📸 Screenshots
+
+### Home Page
+![Home](screenshots/Home.png)
+
+### Register / Login
+![Register](screenshots/Register.png)
+![Login](screenshots/Login.png)
+
+### Product Browsing & Filters
+![Filter](screenshots/Filter.png)
+![Product Page](screenshots/Product.png)
+![Product Details](screenshots/ProductDetails.png)
+
+### Cart & Checkout
+![Cart](screenshots/Cart.png)
+![Checkout](screenshots/Checkout.png)
+![Payment Gateway](screenshots/PaymentGatweway.png)
+
+### Profile & Info Pages
+![Profile](screenshots/Profile.png)
+![About](screenshots/About.png)
+![Contact](screenshots/Contact.png)
+
+### Admin Panel
+![Admin Orders](screenshots/AdminPageOrder.png)
 ![Admin Create Product](screenshots/AdminpageCreateProduct.png)
-
-## 🛠 Tech Stack
-
-- React.js
-- Tailwind CSS & DaisyUI
-- React Router DOM
-- Axios for API calls
-- LocalStorage for temporary state (cart & auth)
-
-## ⚡ Backend API Base URL
-
-Base URL: https://fullstackecommers-backend-uerv.onrender.com/api/v1/
-
-✨ Features
-Fully responsive design for desktop & mobile
-User authentication (signup/login/logout)
-Product browsing, filtering, and details
-Shopping cart system with add/remove items
-Checkout flow with payment gateway
-Admin panel for product & order management
-Profile, About, Contact pages
 
 # 1. Clone the frontend repo
 git clone https://github.com/ALIM23700/FullstackEcommers_Frontend.git
