@@ -13,7 +13,7 @@ Supports user authentication, product browsing, cart management, checkout, and a
 ### ⚙️ Backend
 [Backend Repo](https://github.com/ALIM23700/FullstackEcommers_Backend)
 
----
+
 
 ## 🛠 Tech Stack
 
@@ -82,19 +82,27 @@ npm start
 
 # 5. Open in browser at
 http://localhost:3000/
+---
 
-📁 Project Structure
-src/
-app/ →Redux state management and Backend Url
-components/ → Reusable UI components
-pages/ → Home, Product, Cart, Profile, Admin pages
+# 📁 Project Structure
+
+src/  
+app/ → Redux state management and Backend Url  
+components/ → Reusable UI components  
+pages/ → Home, Product, Cart, Profile, Admin pages  
 App.js → Main router & page rendering
 
-🚀 Future Improvements
-Integrate unit and integration tests
-Improve performance & lazy load images
-Enhance admin panel features
-Add multilingual support
+---
+
+# 🚀 Future Improvements
+
+- Integrate unit and integration tests  
+- Improve performance & lazy load images  
+- Enhance admin panel features  
+- Add multilingual support
+
+---
 
 📄 License
+
 You are free to use, modify, and distribute this project.
