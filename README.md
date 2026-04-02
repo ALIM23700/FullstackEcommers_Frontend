@@ -2,34 +2,39 @@
 
 React + Tailwind CSS frontend for a full-stack e-commerce application.  
 Supports user authentication, product browsing, cart management, checkout, and admin features.
+
 ---
 
 ## 🌐 Live Demo
 [Click here to view the live app](https://fullstack-ecommers-frontend.vercel.app/)
+
 ---
 
 ### ⚙️ Backend
 [Backend Repo](https://github.com/ALIM23700/FullstackEcommers_Backend)
----
 
+---
 
 ## 🛠 Tech Stack
 
-- React.js
-- Tailwind CSS & DaisyUI
-- React Router DOM
-- Axios for API calls
+- React.js  
+- Tailwind CSS & DaisyUI  
+- React Router DOM  
+- Axios for API calls  
 - LocalStorage for temporary state (cart & auth)
+
 ---
 
-✨ Features
-Fully responsive design for desktop & mobile
-User authentication (signup/login/logout)
-Product browsing, filtering, and details
-Shopping cart system with add/remove items
-Checkout flow with payment gateway
-Admin panel for product & order management
-Profile, About, Contact pages
+## ✨ Features
+
+- Fully responsive design for desktop & mobile  
+- User authentication (signup/login/logout)  
+- Product browsing, filtering, and details  
+- Shopping cart system with add/remove items  
+- Checkout flow with payment gateway  
+- Admin panel for product & order management  
+- Profile, About, Contact pages
+
 ---
 
 ## 📸 Screenshots
@@ -38,27 +43,29 @@ Profile, About, Contact pages
 ![Home](screenshots/Home.png)
 
 ### Register / Login
-![Register](screenshots/Register.png)
+![Register](screenshots/Register.png)  
 ![Login](screenshots/Login.png)
 
 ### Product Browsing & Filters
-![Filter](screenshots/Filter.png)
-![Product Page](screenshots/Product.png)
+![Filter](screenshots/Filter.png)  
+![Product Page](screenshots/Product.png)  
 ![Product Details](screenshots/ProductDetails.png)
 
 ### Cart & Checkout
-![Cart](screenshots/Cart.png)
-![Checkout](screenshots/Checkout.png)
+![Cart](screenshots/Cart.png)  
+![Checkout](screenshots/Checkout.png)  
 ![Payment Gateway](screenshots/PaymentGatweway.png)
 
 ### Profile & Info Pages
-![Profile](screenshots/Profile.png)
-![About](screenshots/About.png)
+![Profile](screenshots/Profile.png)  
+![About](screenshots/About.png)  
 ![Contact](screenshots/Contact.png)
 
 ### Admin Panel
-![Admin Orders](screenshots/AdminPageOrder.png)
-![Admin Create Product](screenshots/AdminpageCreateProduct.png)## 📸 Screenshots
+![Admin Orders](screenshots/AdminPageOrder.png)  
+![Admin Create Product](screenshots/AdminpageCreateProduct.png)
+
+---
 
 
 # 1. Clone the frontend repo
