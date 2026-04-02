@@ -2,12 +2,15 @@
 
 React + Tailwind CSS frontend for a full-stack e-commerce application.  
 Supports user authentication, product browsing, cart management, checkout, and admin features.
+---
 
 ## 🌐 Live Demo
 [Click here to view the live app](https://fullstack-ecommers-frontend.vercel.app/)
+---
 
 ### ⚙️ Backend
 [Backend Repo](https://github.com/ALIM23700/FullstackEcommers_Backend)
+---
 
 
 ## 🛠 Tech Stack
@@ -17,6 +20,7 @@ Supports user authentication, product browsing, cart management, checkout, and a
 - React Router DOM
 - Axios for API calls
 - LocalStorage for temporary state (cart & auth)
+---
 
 ✨ Features
 Fully responsive design for desktop & mobile
@@ -56,31 +60,6 @@ Profile, About, Contact pages
 ![Admin Orders](screenshots/AdminPageOrder.png)
 ![Admin Create Product](screenshots/AdminpageCreateProduct.png)## 📸 Screenshots
 
-### Home Page
-![Home](screenshots/Home.png)
-
-### Register / Login
-![Register](screenshots/Register.png)
-![Login](screenshots/Login.png)
-
-### Product Browsing & Filters
-![Filter](screenshots/Filter.png)
-![Product Page](screenshots/Product.png)
-![Product Details](screenshots/ProductDetails.png)
-
-### Cart & Checkout
-![Cart](screenshots/Cart.png)
-![Checkout](screenshots/Checkout.png)
-![Payment Gateway](screenshots/PaymentGatweway.png)
-
-### Profile & Info Pages
-![Profile](screenshots/Profile.png)
-![About](screenshots/About.png)
-![Contact](screenshots/Contact.png)
-
-### Admin Panel
-![Admin Orders](screenshots/AdminPageOrder.png)
-![Admin Create Product](screenshots/AdminpageCreateProduct.png)
 
 # 1. Clone the frontend repo
 git clone https://github.com/ALIM23700/FullstackEcommers_Frontend.git
