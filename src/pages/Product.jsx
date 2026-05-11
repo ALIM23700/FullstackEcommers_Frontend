@@ -174,7 +174,7 @@ const Product = () => {
             )}
             <div className="p-4 flex flex-col gap-2">
               <h4 className="text-lg font-bold text-gray-800">{product.name}</h4>
-              <p className="text-gray-600 font-medium">Price: ${product.price}</p>
+              <p className="text-gray-600 font-medium">Price:  ৳{product.price}</p>
 
               <div className="flex gap-2 mt-2">
                 <button 
