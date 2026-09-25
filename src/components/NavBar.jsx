@@ -20,7 +20,7 @@ const Nav = () => {
   const totalCartItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <nav className="bg-gray-700 text-white flex flex-col sm:flex-row justify-between items-center p-4 relative">
+    <nav className="bg-gray-700 text-white flex flex-col sm:flex-row justify-between items-center p-4 relative h-24">
     
       <div className="flex items-center justify-between w-full sm:w-auto">
         <h1 className="text-4xl font-bold">

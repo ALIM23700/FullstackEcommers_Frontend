@@ -149,7 +149,7 @@ const AdminDashboard = () => {
                       </div>
                     ))}
                   </td>
-                  <td className="border p-2">${order.totalPrice}</td>
+                  <td className="border p-2">{order.totalPrice}৳</td>
                   <td className="border p-2">
                     <span
                       className={`px-2 py-1 rounded-full text-white font-semibold ${
@@ -253,7 +253,7 @@ const AdminDashboard = () => {
               className="w-full h-48 object-cover rounded mb-2"
             />
             <h4 className="font-semibold">{product.name}</h4>
-            <p className="text-gray-700">${product.price}</p>
+            <p className="text-gray-700">৳{product.price}</p>
             <p className="text-gray-700">{product.category}</p>
             <p className="text-gray-700">Stock: {product.stock}</p>
             <div className="flex gap-2 mt-2">

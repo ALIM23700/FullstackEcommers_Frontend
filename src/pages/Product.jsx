@@ -93,7 +93,7 @@ const Product = () => {
  
       <div className="hidden md:grid grid-cols-4 gap-4 mb-6"> 
  
-        <div className="bg-white shadow-lg shadow-blue-700 p-4 rounded-2xl flex flex-col items-center w-full"> 
+        <div className="bg-white shadow-md shadow-blue-700 hover:shadow-red-700 p-4 rounded-2xl flex flex-col items-center w-full"> 
           <h3 className="font-semibold mb-2">Category</h3> 
           {["", "watch", "sunglass", "bag", "cap"].map((cat) => ( 
             <button 
@@ -108,7 +108,7 @@ const Product = () => {
           ))} 
         </div> 
  
-        <div className="bg-white shadow-lg shadow-blue-700 p-4 rounded-2xl flex flex-col items-center w-full"> 
+        <div className="bg-white shadow-md shadow-blue-700 hover:shadow-red-700 p-4 rounded-2xl flex flex-col items-center w-full"> 
           <h3 className="font-semibold mb-2">Min Price</h3> 
           <input  
             type="number"  
@@ -119,7 +119,7 @@ const Product = () => {
           /> 
         </div> 
  
-        <div className="bg-white shadow-lg shadow-blue-700 p-4 rounded-2xl flex flex-col items-center w-full"> 
+        <div className="bg-white shadow-md shadow-blue-700 hover:shadow-red-700 p-4 rounded-2xl flex flex-col items-center w-full"> 
           <h3 className="font-semibold mb-2">Max Price</h3> 
           <input  
             type="number"  
@@ -130,7 +130,7 @@ const Product = () => {
           /> 
         </div> 
  
-        <div className="bg-white shadow-lg shadow-blue-700 p-4 rounded-2xl flex flex-col items-center w-full"> 
+        <div className="bg-white shadow-md shadow-blue-700 hover:shadow-red-700 p-4 rounded-2xl flex flex-col items-center w-full"> 
           <h3 className="font-semibold mb-2">Search</h3> 
           <input  
             type="text"  
@@ -150,7 +150,7 @@ const Product = () => {
         {products && products.map((product) => (                              
           <div 
             key={product._id} 
-            className="bg-white rounded-2xl shadow-lg shadow-green-700 hover:shadow-red-700 transition-shadow duration-300 w-full max-w-[260px] flex flex-col overflow-hidden" 
+            className="bg-white rounded-2xl shadow-lg shadow-gray-700 hover:shadow-red-700 transition-shadow duration-300 w-full max-w-[260px] flex flex-col overflow-hidden" 
           > 
             {product.image && product.image.length > 0 && ( 
               <div className="h-52 overflow-hidden"> 

@@ -21,7 +21,7 @@ const Home = () => {
     
       <div className="relative z-10 text-center px-4 sm:px-6 md:px-12 max-w-3xl">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-md">
-          Welcome to <span className="text-blue-400">Alim e-Store</span>
+          Welcome to <span className="text-blue-400">Alim <br/> e-Store</span>
         </h1>
 
         <p className="mt-3 mb-12 sm:mt-4 md:mt-6 text-base sm:text-lg md:text-xl text-gray-100 font-light">
