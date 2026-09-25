@@ -103,7 +103,7 @@ const AdminDashboard = () => {
     };
 
     try {
-      await dispatch(updateProduct({ id: product._id, updatedProduct }));
+      await dispatch(updateProduct({ id: product._id, productData: updatedProduct }));
       alert("Product updated!");
     } catch (err) {
       alert("Failed to update product");

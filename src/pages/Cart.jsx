@@ -38,7 +38,7 @@ const Cart = () => {
                 />
                 <div>
                   <h3 className="font-semibold text-gray-800">{item.name}</h3>
-                  <p className="text-gray-600">${item.price}</p>
+                  <p className="text-gray-600">৳{item.price}</p>
 
                  
                   <div className="flex items-center gap-2 mt-1">

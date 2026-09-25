@@ -8,9 +8,12 @@ export const fetchAllOrders = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const token = localStorage.getItem("token");
-      const { data } = await axios.get("https://fullstackecommers-backend-uerv.onrender.com/api/v1/all-orders", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const { data } = await axios.get(
+        "https://fullstackecommers-backend-uerv.onrender.com/api/v1/all-orders",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
 
       const orders = data.orders.map((o) => ({
         ...o,
@@ -19,7 +22,9 @@ export const fetchAllOrders = createAsyncThunk(
 
       return orders;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response?.data?.message || error.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data?.message || error.message
+      );
     }
   }
 );
@@ -30,17 +35,22 @@ export const markOrderDelivered = createAsyncThunk(
     try {
       const token = localStorage.getItem("token");
       const { data } = await axios.put(
-        "https://fullstackecommers-backend-uerv.onrender.com/:id/delivered",
+        `https://fullstackecommers-backend-uerv.onrender.com/api/v1/order/${orderId}/delivered`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
       return {
         ...data.order,
-        orderStatus: data.order.orderStatus === "Delivered" ? "Delivered" : "Processing",
+        orderStatus:
+          data.order.orderStatus === "Delivered"
+            ? "Delivered"
+            : "Processing",
       };
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response?.data?.message || error.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data?.message || error.message
+      );
     }
   }
 );
@@ -50,12 +60,19 @@ export const deleteOrder = createAsyncThunk(
   async (orderId, thunkAPI) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete("https://fullstackecommers-backend-uerv.onrender.com/order/:id", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+
+      await axios.delete(
+        `https://fullstackecommers-backend-uerv.onrender.com/api/v1/order/${orderId}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
       return orderId;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response?.data?.message || error.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data?.message || error.message
+      );
     }
   }
 );
@@ -79,11 +96,16 @@ const adminOrderSlice = createSlice({
         state.error = action.payload;
       })
       .addCase(markOrderDelivered.fulfilled, (state, action) => {
-        const index = state.orders.findIndex((o) => o._id === action.payload._id);
+        const index = state.orders.findIndex(
+          (o) => o._id === action.payload._id
+        );
+
         if (index !== -1) state.orders[index] = action.payload;
       })
       .addCase(deleteOrder.fulfilled, (state, action) => {
-        state.orders = state.orders.filter((o) => o._id !== action.payload);
+        state.orders = state.orders.filter(
+          (o) => o._id !== action.payload
+        );
       });
   },
 });

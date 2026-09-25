@@ -38,7 +38,7 @@ const ProductDetails = () => {
       
         <div className="flex flex-col gap-4">
           <h2 className="text-3xl font-bold text-gray-900">{product.name}</h2>
-          <p className="text-2xl font-semibold text-blue-600">${product.price}</p>
+          <p className="text-2xl font-semibold text-blue-600">৳{product.price}</p>
           <p className="text-gray-700 leading-relaxed">{product.description}</p>
 
           <div className="flex flex-col gap-1 text-gray-600 text-sm">

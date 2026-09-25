@@ -40,45 +40,45 @@ function App() {
         <Route
           path="/product"
           element={
-            <PrivateRoute>
+           
               <Product />
-            </PrivateRoute>
+            
           }
         />
 
          <Route
           path="/product/:id"
           element={
-            <PrivateRoute>
+            
             <ProductDetails></ProductDetails>
-            </PrivateRoute>
+           
           }
         />
         
          <Route
           path="/cart"
           element={
-            <PrivateRoute>
+            
              <Cart></Cart>
-            </PrivateRoute>
+           
           }
         />
 
         <Route
           path="/contact"
           element={
-            <PrivateRoute>
+          
               <Contact />
-            </PrivateRoute>
+           
           }
         />
 
         <Route
           path="/about"
           element={
-            <PrivateRoute>
+           
               <About />
-            </PrivateRoute>
+           
           }
         />
           <Route

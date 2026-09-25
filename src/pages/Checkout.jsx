@@ -98,14 +98,14 @@ const Checkout = () => {
                   </div>
                 </div>
                 <p className="font-semibold">
-                  ${(item.price * item.quantity).toFixed(2)}
+                  ৳{(item.price * item.quantity).toFixed(2)}
                 </p>
               </div>
             ))}
           </div>
           <div className="mt-6 border-t pt-4 flex justify-between text-xl font-bold">
             <span>Total:</span>
-            <span>${totalPrice.toFixed(2)}</span>
+            <span>৳{totalPrice.toFixed(2)}</span>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import alim from "../assets/alimvai.jpg";
 
@@ -6,13 +6,7 @@ const Home = () => {
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
-  const handleGetStarted = () => {
-    if (user) {
-      navigate("/product");
-    } else {
-      alert("Please login to access the page");
-    }
-  };
+  
 
   return (
     <div
@@ -30,16 +24,11 @@ const Home = () => {
           Welcome to <span className="text-blue-400">Alim e-Store</span>
         </h1>
 
-        <p className="mt-3 sm:mt-4 md:mt-6 text-base sm:text-lg md:text-xl text-gray-100 font-light">
+        <p className="mt-3 mb-12 sm:mt-4 md:mt-6 text-base sm:text-lg md:text-xl text-gray-100 font-light">
           Discover the best products and feel free to shop with confidence.
         </p>
+        <Link to="/product" className="mt-6 sm:mt-8 px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold shadow-lg transition-all duration-300 transform hover:scale-105"> Get Started</Link>
 
-        <button
-          onClick={handleGetStarted}
-          className="mt-6 sm:mt-8 px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold shadow-lg transition-all duration-300 transform hover:scale-105"
-        >
-          Get Started
-        </button>
       </div>
 
      

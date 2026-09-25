@@ -21,15 +21,14 @@ const Nav = () => {
 
   return (
     <nav className="bg-gray-700 text-white flex flex-col sm:flex-row justify-between items-center p-4 relative">
-      {/* LEFT: Logo */}
+    
       <div className="flex items-center justify-between w-full sm:w-auto">
         <h1 className="text-4xl font-bold">
           Alim<span className="text-orange-500"> e</span>-Store
         </h1>
 
-        {/* Mobile Right side: Cart + Hamburger */}
+      
         <div className="flex items-center sm:hidden gap-4">
-          {/* Cart */}
           <NavLink to="/cart" className="relative font-semibold">
             Cart
             {totalCartItems > 0 && (
@@ -39,7 +38,7 @@ const Nav = () => {
             )}
           </NavLink>
 
-          {/* Hamburger */}
+         
           <FontAwesomeIcon
             icon={menuOpen ? faXmark : faBars}
             size="2x"
@@ -49,7 +48,7 @@ const Nav = () => {
         </div>
       </div>
 
-      {/* LINKS + Desktop Cart */}
+     
       <div
         className={`flex-col sm:flex-row sm:flex items-center w-full sm:w-auto mt-4 sm:mt-0 ${
           menuOpen ? "flex" : "hidden sm:flex"
@@ -103,7 +102,7 @@ const Nav = () => {
           </>
         )}
 
-        {/* Desktop Cart: right after links, before logout */}
+       
         <div className="hidden sm:block sm:ml-8">
           <NavLink to="/cart" className="relative font-semibold">
             Cart
@@ -115,7 +114,7 @@ const Nav = () => {
           </NavLink>
         </div>
 
-        {/* Logout button last */}
+       
         {user && (
           <button
             onClick={handleLogout}
